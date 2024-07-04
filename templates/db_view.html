@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ID Cards Database</title>
+</head>
+<body>
+    <h1>ID Cards Database</h1>
+    {% if error %}
+    <p style="color:red;">{{ error }}</p>
+    {% endif %}
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Registration Number</th>
+        </tr>
+        {% for id in ids %}
+        <tr>
+            <td>{{ id.name }}</td>
+            <td>{{ id.registration_number }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="{{ url_for('upload_page') }}"><button>Back to Upload</button></a>
+</body>
+</html>

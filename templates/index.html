@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Distance Measurement</title>
+    <script>
+        function fetchDistance() {
+            fetch('/distance')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('distance').innerText = `Current Distance: ${data.distance} cm`;
+                if (data.distance <= 10) {
+                    window.location.href = '/upload';
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        setInterval(fetchDistance, 1000);
+    </script>
+</head>
+<body>
+    <h1>Distance Measurement</h1>
+    <p id="distance">Current Distance: {{ distance }} cm</p>
+</body>
+</html>

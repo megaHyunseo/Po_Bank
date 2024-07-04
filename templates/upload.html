@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload ID</title>
+</head>
+<body>
+    <h1>Upload ID Card</h1>
+    {% if error %}
+    <p style="color:red;">{{ error }}</p>
+    {% endif %}
+    <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Upload">
+    </form>
+    <br>
+    <form action="{{ url_for('delete_db') }}" method="post">
+        <input type="submit" value="Delete All Entries in DB">
+    </form>
+</body>
+</html>
